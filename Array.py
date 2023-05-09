@@ -17,8 +17,6 @@ class Array:
         self.items.pop(index)
         self.count -= 1
 
-        
-    
     def indexOf(self, item:int)->int:
         try:
             return self.items.index(item)
