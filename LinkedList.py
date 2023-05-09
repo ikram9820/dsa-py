@@ -104,6 +104,34 @@ class LinkedList:
         self.last.next = None
         self.first = previous
 
+    # def get_kth_from_the_end(self,kth): # valid only when size is known
+    #     if kth > self.size() or kth <= 0:
+    #         raise IndexError("kth must be greater than 0 and less than size")
+    #     n = self.size() - kth
+    #     index =0
+    #     current = self.first
+    #     while index < n:
+    #         current= current.next
+    #         index +=1
+    #     return current.data
+
+    def get_kth_from_the_end(self, kth): # work, even if size is unkown 
+        # [5 -> 4 -> 9 -> 6]
+        if(self.is_empty()):
+            raise IndexError("list is empty")
+        first = self.first
+        second = self.first
+        for i in range(kth-1):
+            second = second.next
+            if second is None:
+                raise IndexError("kth is greater than size of list")
+        while second != self.last:
+            first = first.next
+            second = second.next
+        return first.data            
+
+
+
     def traverse(self):
         current = self.first
         print("printting linked list...")
@@ -119,8 +147,6 @@ if __name__ == "__main__":
     list.add_last(4)
     list.add_last(9)
     list.add_last(6)
-    # list.delete_last()
     list.traverse()
-    list.reverse()
-    list.traverse()
+    print("kth node:",list.get_kth_from_the_end(5))
    
