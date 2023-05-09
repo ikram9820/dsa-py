@@ -88,6 +88,22 @@ class LinkedList:
     def is_empty(self)->bool:
         return bool((self.first is None)or(self.last is None))
     
+    def reverse(self):
+        if self.is_empty():
+            return
+   
+        previous = self.first
+        current = previous.next
+        while current:
+            temp = current.next
+            current.next = previous
+            previous =current
+            current = temp
+
+        self.last = self.first
+        self.last.next = None
+        self.first = previous
+
     def traverse(self):
         current = self.first
         print("printting linked list...")
@@ -103,9 +119,8 @@ if __name__ == "__main__":
     list.add_last(4)
     list.add_last(9)
     list.add_last(6)
+    # list.delete_last()
     list.traverse()
-    print("list size: " ,list.size())
-    print(list.index_of(4))
+    list.reverse()
     list.traverse()
-    array = list.to_array()
-    print("array: " ,array)
+   
