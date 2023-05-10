@@ -43,7 +43,6 @@ def balancedString(str:str):
                 return False             
     return stack.isEmpty()
 
-
 if __name__ == "__main__":
     print(balancedString("(1+2))"))
 
