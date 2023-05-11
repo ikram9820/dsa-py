@@ -69,8 +69,6 @@ class Hash:
         return current.data if current else None
 
 
-
-
 if __name__ == '__main__':
     hash = Hash(5)
     hash.put(32,'ikram')
