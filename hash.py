@@ -56,8 +56,7 @@ class Hash:
             packet.delete_first()
         else:
             previous.next = current.next
-
-
+        
     def get(self,key:int)->Entry:
         hashkey = self.hash(key)
         packet = self.entries[hashkey]
