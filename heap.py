@@ -7,18 +7,20 @@ class Heap:
         self.bubbleup()
 
     def remove(self):
+        if self.empty():
+            return None
+        if self.size() == 1:
+            return self.heap.pop()
         item = self.heap.pop(0)
         self.heap.insert(0,self.heap.pop())
         self.bubbledown()
         return item
-    
     def bubbleup(self):
         index=self.size()-1
         while index>0 and self.heap[index] >\
                           self.heap[self.parentIndex(index)]:
             self.swap(index,self.parentIndex(index))
             index = self.parentIndex(index)
-  
     def bubbledown(self):
         index =0
         while index<self.size() and not self.validParent(index):
@@ -73,22 +75,22 @@ class Heap:
     def size(self)->int:
         return len(self.heap)
     def empty(self)->bool:
-        return self.size()==0
+        return self.heap==[]
+    
+def heapSort(array,asc=True):
+    heap = Heap()
+    sorted = []
+    for item in array:
+        heap.insert(item)
+    while not heap.empty():
+        if asc:
+            sorted.append(heap.remove())
+        else:
+            sorted.insert(0,heap.remove())
+    return sorted
     
 if __name__ == "__main__":
     heap = Heap()
-    heap.insert(10)
-    heap.insert(20)
-    heap.insert(15)
-    heap.insert(13)
-    heap.insert(19)
-    heap.insert(11)
-    heap.insert(121)
-    heap.insert(11)
-    heap.insert(11)
-
-   
-    print(heap.remove())
-    print(heap.remove())
-    heap.traverse()
+    array = [0,2,5,1,7,8,2]
+    print(heap.heapify(array))
 
