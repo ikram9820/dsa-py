@@ -1,7 +1,6 @@
 
 from typing import List
 
-
 class Array:
     def __init__(self):
         self.items:List[int] = []
