@@ -1,14 +1,13 @@
 
 class Heap:
     @classmethod
-    
     def heapify(cls,array):
         cls.array = array
         lastparentIndex = len(array)//2-1
         for i in range(lastparentIndex,-1,-1):
             cls.doheapify(i)
-
-
+            
+                       
     @classmethod
     def doheapify(cls,index):
         largerIndex=index
