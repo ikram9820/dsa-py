@@ -1,19 +1,19 @@
 
 class Stack:
     def __init__(self):
-        self.stack = []
+        self.items = []
     
     def push(self, value):
-        self.stack.append(value)
+        self.items.append(value)
     
     def pop(self):
-        return self.stack.pop()
+        return self.items.pop()
     
     def peek(self):
-        return self.stack[-1]
+        return self.items[-1]
     
     def isEmpty(self):
-        return self.stack == []
+        return self.items == []
     
 def reverseString(str:str):
     stack = Stack()

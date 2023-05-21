@@ -6,11 +6,8 @@ class Queue:
         if self.isEmpty():
             self.items.insert(0,data)
         else:
-            for index, item in enumerate(self.items):
-                if data<item:
-                    self.items.insert(index,data)
-                    return
             self.items.append(data)
+            self.items.sort(key=lambda x :x["priority"] if type(x)==dict and x["priority"] else None)
     
     def dequeue(self):
         return self.items.pop(0)
